@@ -1,7 +1,7 @@
 Common Platform Enumeration for PHP
 --------------------------------------
 
-*CPE* (this code) is a MIT licensed Python package, implementing the
+*CPE* (this code) is a MIT licensed PHP package, implementing the
 CPE standards.
 
 
