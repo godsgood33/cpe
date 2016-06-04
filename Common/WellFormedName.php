@@ -17,7 +17,7 @@ class WellFormedName {
 	// Underlying wfn representation.
 	private $wfn = null;
 	// All permissible WFN attributes as defined by specification.
-	const ATTRIBUTES = array("part", "vendor", "product", "version",
+	private $attributes = array("part", "vendor", "product", "version",
 			"update", "edition", "language", "sw_edition", "target_sw",
 			"target_hw", "other");
 
@@ -47,7 +47,7 @@ class WellFormedName {
 		if ($part === null && $vendor === null && $product === null && $version === null && 
 			$update === null && $edition === null && $language === null && $sw_edition === null && $target_sw === null &&
 			$target_hw === null && $other === null){
-				foreach (WellFormedName::ATTRIBUTES as $a){
+				foreach ($this->attributes as $a){
 					if ($a != "part"){
 						$this->set($a, new LogicalValue("ANY"));
 					}
@@ -88,7 +88,7 @@ class WellFormedName {
 	 */	
 	public final function set($attribute, $value){
 		// Iterate over permissible attributes.
-		foreach (WellFormedName::ATTRIBUTES as $a){
+		foreach ($this->attributes as $a){
 			// If the argument is a valid attribute, set that attribute's value.
 			if ($attribute == $a) {
 				// check to see if we're setting a LogicalValue ANY or NA
@@ -186,7 +186,7 @@ class WellFormedName {
 	 */
 	public function __toString() {
 		$str = "wfn:[";
-		foreach (WellFormedName::ATTRIBUTES as $attr) {
+		foreach ($this->attributes as $attr) {
 			$str = $str . $attr;
 			$str = $str . "=";
 			
