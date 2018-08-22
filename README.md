@@ -26,11 +26,13 @@ Features
 Getting Started
 --------
 - Clone repository
+
 ```bash
 $ git clone https://github.com/pacificsec/cpe.git
 $ cd cpe
 ```
 - Create a new PHP file to run tests
+
 ```php
 <?php
 require('autoload.php');
