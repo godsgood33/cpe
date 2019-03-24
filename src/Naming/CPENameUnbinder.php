@@ -163,7 +163,7 @@ class CPENameUnbinder {
      * @throws Exception representing parsing errors
      */
     private function unbindValueFS($s) {
-        if ($s == "*") {
+        if (in_array($s, ['', null, '*'])) {
             return new LogicalValue("ANY");
         }
         if ($s == "-") {
@@ -272,7 +272,7 @@ class CPENameUnbinder {
      * @see CPENameBinder#pctEncode
      */
     private function decode($s) {
-        if ($s == "") {
+        if (in_array($s, ['', null, '*'])) {
             return new LogicalValue("ANY");
         }
         if ($s == "-") {

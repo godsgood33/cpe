@@ -179,7 +179,7 @@ class CPENameBinder
             $l = $s;
             // The value NA binds to a blank.
             if ($l->isANY()) {
-                return "";
+                return "*";
             }
             // The value NA binds to a single hyphen.
             if ($l->isNA()) {

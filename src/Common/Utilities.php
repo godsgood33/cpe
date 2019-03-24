@@ -134,6 +134,30 @@ class Utilities {
             throw new Exception("Error: Formatted String must start with \"cpe:2.3\". Given: " . $in, 0);
         }
 
+        /**
+         * Array of encoded characters
+         */
+        $encoded = [
+            '%26', '%21', '%22', '%23', '%24', '%25', '%26',
+            '%27', '%28', '%29', '%2a', '%2b', '%2c', '-',
+            '.',   '%2f', '%3a', '%3b', '%3c', '%3d', '%3e',
+            '%3f', '%40', '%5b', '%5c', '%5d', '%5e', '%60',
+            '%7b', '%7c', '%7d', '%7e'
+        ];
+
+        /**
+         * Array of escaped characters
+         */
+        $escaped = [
+            '\&amp;', '\!', '\"', '\#', '\$', '\%', '\&',
+            "\'",     '\(', '\)', '\*', '\+', '\,', '\-',
+            '\.',     '\/', '\:', '\;', '\<', '\=', '\>',
+            '\?',     '\@', '\[', '\\', '\]', '\^', '\`',
+            '\{',     '\|', '\}', '\~'
+        ];
+
+        $in = str_replace($escaped, $encoded, $in);
+
         $count = 0;
         for ($i = 0; $i != strlen($in); $i++){
             if (substr($in, $i, 1) == ":"){
